@@ -122,7 +122,7 @@ export default function Home() {
       category: "ability"
     });
   });
-
+  }
     return pool;
   };
 
