@@ -276,7 +276,7 @@ export default function Home() {
   alt="Quiz question"
   className={`max-h-64 max-w-full rounded-xl border border-white/10 object-contain ${
     questions[index].category === "silhouette"
-      ? "brightness-0 blur-[3px]"
+      ? "grayscale brightness-50 contrast-150 blur-[2px]"
       : ""
   }`}
 />
