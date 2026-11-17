@@ -93,7 +93,7 @@ export default function Home() {
           .map(i => i.name);
 
         pool.push({
-          image: `https://ddragon.leagueoflegends.com/cdn/${"15.1.1"}/img/item/${item.image.full}`,
+          image: `https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/item/${item.image.full}`,
           answer: item.name,
           options: [...others, item.name].sort(() => Math.random() - 0.5),
           category: "item"
