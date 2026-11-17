@@ -8,6 +8,12 @@ type Champion = {
   name: string;
   title: string;
   image: { full: string };
+  spells: {
+    id: string;
+    name: string;
+    description: string;
+    image: { full: string };
+  }[];
 };
 
 type Item = {
@@ -29,6 +35,7 @@ export default function Home() {
   const [language, setLanguage] = useState<"tr" | "en">("tr");
   const [champions, setChampions] = useState<Champion[]>([]);
   const [items, setItems] = useState<Item[]>([]);
+const [gameVersion, setGameVersion] = useState("15.1.1");
   const [mode, setMode] = useState("");
   const [difficulty, setDifficulty] = useState("Karışık");
   const [style, setStyle] = useState("Klasik");
