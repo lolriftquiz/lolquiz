@@ -35,7 +35,7 @@ export default function Home() {
   const [language, setLanguage] = useState<"tr" | "en">("tr");
   const [champions, setChampions] = useState<Champion[]>([]);
   const [items, setItems] = useState<Item[]>([]);
-const [gameVersion, setGameVersion] = useState("15.1.1");
+  const [gameVersion, setGameVersion] = useState("15.1.1");
   const [mode, setMode] = useState("");
   const [difficulty, setDifficulty] = useState("Karışık");
   const [style, setStyle] = useState("Klasik");
@@ -54,6 +54,7 @@ const [gameVersion, setGameVersion] = useState("15.1.1");
     fetch("/api/game-data")
       .then(r => r.json())
       .then(data => {
+        setGameVersion(data.version);
         setChampions(data.champions || []);
         setItems(data.items || []);
       })
