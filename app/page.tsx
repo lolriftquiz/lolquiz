@@ -99,24 +99,29 @@ export default function Home() {
           category: "item"
         });
       });
-    } else if (selectedMode === "ability") {
-      const shuffled = [...champions].sort(() => Math.random() - 0.5);
+     } else if (selectedMode === "ability") {
+       const shuffled = [...champions].sort(() => Math.random() - 0.5);
 
       shuffled.slice(0, 10).forEach(champ => {
-        const others = champions
-          .filter(c => c.id !== champ.id)
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 3)
-          .map(c => c.name);
+      const spell = champ.spells[
+      Math.floor(Math.random() * champ.spells.length)
+    ];
 
-        pool.push({
-          image: `https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/${champ.image.full}`,
-          answer: champ.name,
-          options: [...others, champ.name].sort(() => Math.random() - 0.5),
-          category: "ability"
-        });
-      });
-    }
+    if (!spell) return;
+
+    const others = champions
+      .filter(c => c.id !== champ.id)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3)
+      .map(c => c.name);
+
+    pool.push({
+      image: `https://ddragon.leagueoflegends.com/cdn/${gameVersion}/img/spell/${spell.image.full}`,
+      answer: champ.name,
+      options: [...others, champ.name].sort(() => Math.random() - 0.5),
+      category: "ability"
+    });
+  });
 
     return pool;
   };
