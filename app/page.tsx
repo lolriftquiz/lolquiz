@@ -271,7 +271,15 @@ export default function Home() {
             <div className="quiz-card p-6 sm:p-9">
               <h2 className="mb-6 text-center text-2xl font-black">{tr ? "Bu hangisi?" : "What is this?"}</h2>
               <div className="mb-8 flex justify-center">
-                  
+                  <img
+  src={questions[index].image}
+  alt="Quiz question"
+  className={`max-h-64 max-w-full rounded-xl border border-white/10 object-contain ${
+    questions[index].category === "silhouette"
+      ? "brightness-0 blur-[3px]"
+      : ""
+  }`}
+/>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2">
